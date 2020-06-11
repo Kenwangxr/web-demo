@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,8 +15,11 @@ public class HelloController {
 
     @RequestMapping("/hello")
     private ModelAndView hello(ModelAndView model){
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
         model.getModel().put("hello","dldll");
         model.setViewName("hello");
+        stopWatch.stop();
         return model;
     }
 
